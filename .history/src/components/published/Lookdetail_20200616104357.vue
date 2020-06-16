@@ -38,7 +38,6 @@ import axios from 'axios'
      this.id=this.$route.query.id
      axios.post("/api/article/article",{ _id:this.id})
      .then(res=>{
-       console.log(res);
        this.ruleForm = res.data.data
        console.log(this.ruleForm);
        this.text = res.data.data.text

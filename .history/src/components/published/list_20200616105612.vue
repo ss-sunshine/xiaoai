@@ -74,11 +74,8 @@ export default {
     };
   },
   methods: {
-    Delete(index,row){
-      axios.post('/api/article/delete',{ _id: row._id})
-      .then(res=>{
-        this.ruleForm.splice(index,1)
-      })
+    Delete(row){
+      axios.post('/api/article/delete',{_id:row._id})
     },
     Look(row){
       this.$router.push({path:"/detail",query:{id:row._id}})

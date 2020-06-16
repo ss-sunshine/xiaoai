@@ -39,8 +39,8 @@
         <template slot-scope="scope">
           <div class="f-j">
             <el-button type="primary" size="mini" @click="Edit(scope.$index, scope.row)">编辑</el-button>
-            <el-button type="danger" size="mini" @click="Delete(scope.row)">删除</el-button>
-            <el-button type="success" size="mini" @click="Look(scope.row)">查看</el-button>
+            <el-button type="danger" size="mini" @click="Delete(scope.$index, scope.row)">删除</el-button>
+            <el-button type="success" size="mini" @click="Look(scope.$index, scope.row)">查看</el-button>
           </div>
         </template>
       </el-table-column>
@@ -74,14 +74,8 @@ export default {
     };
   },
   methods: {
-    Delete(index,row){
-      axios.post('/api/article/delete',{ _id: row._id})
-      .then(res=>{
-        this.ruleForm.splice(index,1)
-      })
-    },
     Look(row){
-      this.$router.push({path:"/detail",query:{id:row._id}})
+      this.$router.push({path:"/detail",query:{id:row._id})
     },
     getData() {
       axios

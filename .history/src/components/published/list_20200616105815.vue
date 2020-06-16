@@ -74,7 +74,7 @@ export default {
     };
   },
   methods: {
-    Delete(index,row){
+    Delete(row){
       axios.post('/api/article/delete',{ _id: row._id})
       .then(res=>{
         this.ruleForm.splice(index,1)
